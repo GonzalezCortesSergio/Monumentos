@@ -48,7 +48,7 @@ public class MonumentoController {
     }
 
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<Monumento> editar(@PathVariable Long id, @RequestBody Monumento cambio) {
 
         Optional<Monumento> optionalMonumento = service.findById(id);
@@ -72,7 +72,7 @@ public class MonumentoController {
     }
 
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminar (@PathVariable Long id) {
 
         if (service.findById(id).isEmpty())
