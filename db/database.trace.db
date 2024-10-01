@@ -194,3 +194,7 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/gonzale
 org.h2.jdbc.JdbcSQLDataException: Valor demasiado largo para la columna "DESCRIPCION CHARACTER VARYING(255)": "U&'Las Tres Cruces es un monumento en Vilna, Lituania, dise\\00f1ado por el arqui... (286)"
 Value too long for column "DESCRIPCION CHARACTER VARYING(255)": "U&'Las Tres Cruces es un monumento en Vilna, Lituania, dise\\00f1ado por el arqui... (286)"; SQL statement:
 insert into monumento (codigo_pais,descripcion,latitud,longitud,nombre_ciudad,nombre_monumento,nombre_pais,photo_url,id) values (?,?,?,?,?,?,?,?,?) [22001-224]
+2024-10-01 14:07:46.127191+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor demasiado largo para la columna "CODIGO_PAIS CHARACTER VARYING(2)": "'ROU' (3)"
+Value too long for column "CODIGO_PAIS CHARACTER VARYING(2)": "'ROU' (3)"; SQL statement:
+update monumento set codigo_pais=?,descripcion=?,latitud=?,longitud=?,nombre_ciudad=?,nombre_monumento=?,nombre_pais=?,photo_url=? where id=? [22001-224]

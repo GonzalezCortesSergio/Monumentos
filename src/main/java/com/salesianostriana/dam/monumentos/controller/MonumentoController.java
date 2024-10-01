@@ -57,18 +57,7 @@ public class MonumentoController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
 
-        return ResponseEntity.of(optionalMonumento.map(antiguo -> {
-            antiguo.setLatitud(cambio.getLatitud());
-            antiguo.setDescripcion(cambio.getDescripcion());
-            antiguo.setCodigoPais(cambio.getCodigoPais());
-            antiguo.setLongitud(cambio.getLatitud());
-            antiguo.setNombreMonumento(cambio.getNombreMonumento());
-            antiguo.setNombreCiudad(cambio.getNombreCiudad());
-            antiguo.setNombrePais(cambio.getNombrePais());
-            antiguo.setPhotoUrl(cambio.getPhotoUrl());
-
-            return service.edit(antiguo);
-        }));
+        return new ResponseEntity<Monumento>(service.edit(id, cambio), HttpStatus.OK);
     }
 
 

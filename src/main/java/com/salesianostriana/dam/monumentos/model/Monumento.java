@@ -17,7 +17,14 @@ public class Monumento {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String codigoPais, nombrePais, nombreCiudad;
+    @Column(nullable = false, length = 2)
+    private String codigoPais;
+
+    @Column(nullable = false)
+    private String nombrePais;
+
+    @Column(nullable = false)
+    private String nombreCiudad;
 
     private double latitud, longitud;
 

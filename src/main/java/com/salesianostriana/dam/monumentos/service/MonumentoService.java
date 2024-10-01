@@ -34,9 +34,25 @@ public class MonumentoService {
         return repository.save(monumento);
     }
 
-    public Monumento edit(Monumento monumento) {
+    public Monumento edit(Long id, Monumento cambio) {
 
-        return repository.save(monumento);
+        Monumento antiguo = repository.findById(id).orElse(null);
+
+        if(antiguo != null){
+
+            antiguo.setLatitud(cambio.getLatitud());
+            antiguo.setDescripcion(cambio.getDescripcion());
+            antiguo.setCodigoPais(cambio.getCodigoPais());
+            antiguo.setLongitud(cambio.getLatitud());
+            antiguo.setNombreMonumento(cambio.getNombreMonumento());
+            antiguo.setNombreCiudad(cambio.getNombreCiudad());
+            antiguo.setNombrePais(cambio.getNombrePais());
+            antiguo.setPhotoUrl(cambio.getPhotoUrl());
+
+            return repository.save(antiguo);
+
+        }
+        return null;
     }
 
     public void deleteById(Long id) {
